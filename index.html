@@ -5,18 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DK Technologies</title>
 
-<!-- FONTS -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
 
-body{
-background:#f8fafc;
-color:#0f172a;
-}
+body{background:#f8fafc;color:#0f172a;}
 
-/* HEADER */
 header{
 padding:60px 20px;
 text-align:center;
@@ -30,18 +25,15 @@ display:flex;align-items:center;justify-content:center;
 font-size:30px;margin:auto;font-weight:bold;
 }
 
-/* 🔥 FONT CHANGED HERE */
 header h1{
-font-size:45px;
-letter-spacing:3px;
+font-size:48px;
+letter-spacing:2px;
 margin-top:10px;
-font-family:'Orbitron', sans-serif;
+font-family:'Montserrat', sans-serif;
 }
 
 header span{color:#0284c7;}
-header p{margin-top:10px;color:#334155;}
 
-/* NAV */
 nav{
 display:flex;justify-content:center;
 background:#e2e8f0;padding:15px;
@@ -54,7 +46,6 @@ color:#0f172a;font-weight:500;
 
 nav a:hover{color:#0284c7;}
 
-/* SECTION */
 section{padding:60px 20px;text-align:center;}
 .container{max-width:1100px;margin:auto;}
 
@@ -71,7 +62,6 @@ transition:0.3s;
 }
 .card:hover{transform:translateY(-8px);}
 
-/* BUTTON */
 .btn{
 background:#0284c7;color:white;
 padding:10px 20px;border-radius:8px;
@@ -80,39 +70,27 @@ margin-top:10px;border:none;cursor:pointer;
 }
 .btn:hover{background:#0369a1;}
 
-.home-buttons{
-margin-top:25px;
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
+.review-card{
+background:white;padding:20px;border-radius:12px;
+margin-top:20px;
+box-shadow:0 6px 15px rgba(0,0,0,0.08);
+text-align:left;border-left:5px solid #0284c7;
 }
 
-/* REVIEWS */
-.review-card{
-background:white;
-padding:15px;
-border-radius:10px;
-margin-top:15px;
-box-shadow:0 2px 6px rgba(0,0,0,0.1);
-text-align:left;
+.review-header{
+display:flex;justify-content:space-between;
 }
 
 .review-stars{color:#fbbf24;}
 
 form input, form textarea, form select{
-width:80%;
-padding:10px;
-margin:10px;
-border-radius:8px;
-border:1px solid #ccc;
+width:80%;padding:10px;margin:10px;
+border-radius:8px;border:1px solid #ccc;
 }
 
-/* FOOTER */
 footer{
 background:#e2e8f0;
 padding:20px;text-align:center;
-margin-top:40px;
 }
 </style>
 </head>
@@ -143,7 +121,7 @@ margin-top:40px;
 100+ Students Successfully Completed Projects
 </h3>
 
-<div class="home-buttons">
+<div>
 <a href="#services" class="btn">Our Services</a>
 <a href="#projects" class="btn">View Projects</a>
 <a href="#contact" class="btn">Contact Us</a>
@@ -164,7 +142,7 @@ margin-top:40px;
 </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- PROJECTS (RESTORED SAME) -->
 <section id="projects">
 <div class="container">
 <h2>Our Projects</h2>
@@ -223,13 +201,13 @@ margin-top:40px;
 <section id="contact">
 <div class="container">
 <h2>Contact Us</h2>
+
 <p>Kavitha - Arani</p>
 <p>Email: kavithait5017@gmail.com</p>
-<p>Phone: 9092306610</p>
-<p>Phone: 8110999825</p>
+<p>Phone: 9092306610 / 8110999825</p>
 
-<a class="btn" href="https://wa.me/919092306610">Chat on WhatsApp</a>
-<a class="btn" href="https://wa.me/918110999825">Chat on WhatsApp</a>
+<button class="btn" onclick="openWhatsApp()">Chat on WhatsApp</button>
+
 </div>
 </section>
 
@@ -237,51 +215,59 @@ margin-top:40px;
 <p>© 2026 DK Technologies</p>
 </footer>
 
-<!-- ✅ SUPABASE SCRIPT -->
 <script type="module">
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm"
 
-const supabaseUrl = "https://cwwpxzspavwuwrqvydlp.supabase.co";
-const supabaseKey = "sb_publishable_VVp8bnP6yrRfZY0N5kd6LA_8yAiEpWH";
-
-const supabase = createClient(supabaseUrl, supabaseKey);
+const supabase = createClient(
+"https://cwwpxzspavwuwrqvydlp.supabase.co",
+"sb_publishable_VVp8bnP6yrRfZY0N5kd6LA_8yAiEpWH"
+);
 
 window.handleSubmit = async function(e){
-  e.preventDefault();
+e.preventDefault();
 
-  const name = document.getElementById("name").value;
-  const rating = document.getElementById("rating").value;
-  const review = document.getElementById("review").value;
+const name = document.getElementById("name").value;
+const rating = document.getElementById("rating").value;
+const review = document.getElementById("review").value;
 
-  const { error } = await supabase
-    .from("reviews")
-    .insert([{ name, rating, review }]);
+await supabase.from("reviews").insert([{name,rating,review,created_at:new Date()}]);
 
-  if(error){
-    alert("Error submitting review");
-  } else {
-    alert("Review submitted!");
-    loadReviews();
-  }
+document.getElementById("name").value="";
+document.getElementById("rating").value="";
+document.getElementById("review").value="";
+
+loadReviews();
 }
 
 async function loadReviews(){
-  const { data, error } = await supabase
-    .from("reviews")
-    .select("*");
+const {data} = await supabase.from("reviews").select("*").order("id",{ascending:false});
 
-  const list = document.getElementById("reviewList");
-  list.innerHTML = "";
+const list = document.getElementById("reviewList");
+list.innerHTML="";
 
-  data.forEach((item) => {
-    list.innerHTML += `
-      <div class="review-card">
-        <strong>${item.name}</strong><br>
-        <span class="review-stars">${item.rating}</span>
-        <p>${item.review}</p>
-      </div>
-    `;
-  });
+data.forEach(r=>{
+list.innerHTML+=`
+<div class="review-card">
+<div class="review-header">
+<b>${r.name}</b>
+<span>${r.created_at ? new Date(r.created_at).toLocaleDateString() : ""}</span>
+</div>
+<div class="review-stars">${r.rating}</div>
+<p>${r.review}</p>
+</div>
+`;
+});
+}
+
+window.openWhatsApp = function(){
+
+const message = "Hi, this is DK Technologies 👋\nWhat kind of help do you need from our services?";
+
+const url1 = `https://wa.me/919092306610?text=${encodeURIComponent(message)}`;
+const url2 = `https://wa.me/918110999825?text=${encodeURIComponent(message)}`;
+
+window.open(url1,"_blank");
+window.open(url2,"_blank");
 }
 
 loadReviews();
