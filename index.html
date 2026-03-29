@@ -23,103 +23,75 @@ background:linear-gradient(135deg,#e0f2fe,#bae6fd);
 }
 
 .logo{
-width:80px;
-height:80px;
-border-radius:50%;
-background:#0284c7;
-color:white;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:30px;
-margin:auto;
-font-weight:bold;
+width:80px;height:80px;border-radius:50%;
+background:#0284c7;color:white;
+display:flex;align-items:center;justify-content:center;
+font-size:30px;margin:auto;font-weight:bold;
 }
 
-header h1{
-font-size:45px;
-letter-spacing:3px;
-margin-top:10px;
-}
-
-header span{
-color:#0284c7;
-}
-
-header p{
-margin-top:10px;
-color:#334155;
-}
+header h1{font-size:45px;letter-spacing:3px;margin-top:10px;}
+header span{color:#0284c7;}
+header p{margin-top:10px;color:#334155;}
 
 /* NAV */
 nav{
-display:flex;
-justify-content:center;
-background:#e2e8f0;
-padding:15px;
+display:flex;justify-content:center;
+background:#e2e8f0;padding:15px;
 }
 
 nav a{
-margin:0 15px;
-text-decoration:none;
-color:#0f172a;
-font-weight:500;
+margin:0 15px;text-decoration:none;
+color:#0f172a;font-weight:500;
 }
 
-nav a:hover{
-color:#0284c7;
-}
+nav a:hover{color:#0284c7;}
 
-/* SECTIONS */
-section{
-padding:60px 20px;
-text-align:center;
-}
+/* SECTION */
+section{padding:60px 20px;text-align:center;}
 
-.container{
-max-width:1100px;
-margin:auto;
-}
+.container{max-width:1100px;margin:auto;}
 
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-margin-top:30px;
+gap:25px;margin-top:30px;
 }
 
 .card{
-background:white;
-padding:25px;
-border-radius:15px;
+background:white;padding:25px;border-radius:15px;
 box-shadow:0 4px 10px rgba(0,0,0,0.1);
 transition:0.3s;
 }
+.card:hover{transform:translateY(-8px);}
 
-.card:hover{
-transform:translateY(-8px);
-}
-
+/* BUTTON */
 .btn{
-background:#0284c7;
-color:white;
-padding:10px 20px;
-border-radius:8px;
-text-decoration:none;
-display:inline-block;
-margin-top:10px;
+background:#0284c7;color:white;
+padding:10px 20px;border-radius:8px;
+text-decoration:none;display:inline-block;
+margin-top:10px;border:none;cursor:pointer;
 }
+.btn:hover{background:#0369a1;}
 
-.btn:hover{
-background:#0369a1;
+.home-buttons{
+margin-top:25px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
 }
 
 /* REVIEWS */
-.review-stars{
-color:#fbbf24;
-font-size:18px;
-margin-bottom:8px;
+.review-card{
+background:white;
+padding:15px;
+border-radius:10px;
+margin-top:15px;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+text-align:left;
 }
+
+.review-stars{color:#fbbf24;}
 
 form input, form textarea, form select{
 width:80%;
@@ -132,13 +104,12 @@ border:1px solid #ccc;
 /* FOOTER */
 footer{
 background:#e2e8f0;
-padding:20px;
-text-align:center;
+padding:20px;text-align:center;
 margin-top:40px;
 }
 </style>
-
 </head>
+
 <body>
 
 <header>
@@ -155,82 +126,103 @@ margin-top:40px;
 <a href="#contact">Contact</a>
 </nav>
 
+<!-- HOME -->
 <section>
 <div class="container">
 <h2>Welcome</h2>
 <p>We provide high-quality academic and real-time projects for students.</p>
-<h3 style="margin-top:15px;color:#0284c7;">100+ Students Successfully Completed Projects</h3>
+
+<h3 style="margin-top:15px;color:#0284c7;">
+100+ Students Successfully Completed Projects
+</h3>
+
+<div class="home-buttons">
+<a href="#services" class="btn">Our Services</a>
+<a href="#projects" class="btn">View Projects</a>
+<a href="#contact" class="btn">Contact Us</a>
+</div>
 </div>
 </section>
 
+<!-- SERVICES -->
 <section id="services">
 <div class="container">
 <h2>Our Services</h2>
 <div class="grid">
 <div class="card">Final Year Project Development</div>
 <div class="card">Custom Project Solutions</div>
-<div class="card">Mini & Academic Projects</div>
-<div class="card">Live Project Training</div>
+<div class="card">Mini Projects</div>
+<div class="card">Live Training</div>
 </div>
 </div>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects">
 <div class="container">
 <h2>Our Projects</h2>
 <div class="grid">
 
 <div class="card">
-<h3>AI Employee Prediction</h3>
-<p>Machine learning based system.</p>
-<a href="#" class="btn">View Project</a>
+<h3>AI Intrusion Detection</h3>
+<p>Machine learning system</p>
+<a href="https://wa.me/919092306610" class="btn">Request Project</a>
 </div>
 
 <div class="card">
-<h3>Travel Recommendation</h3>
-<p>Smart recommendation system.</p>
-<a href="#" class="btn">View Project</a>
+<h3>Fake News Detection</h3>
+<p>Recommendation system</p>
+<a href="https://wa.me/919092306610" class="btn">Request Project</a>
 </div>
 
 <div class="card">
-<h3>Crop Yield Prediction</h3>
-<p>Data-driven agriculture model.</p>
-<a href="#" class="btn">View Project</a>
+<h3>Sentiment Analysis</h3>
+<p>Student feedback system</p>
+<a href="https://wa.me/919092306610" class="btn">Request Project</a>
 </div>
 
 </div>
 </div>
 </section>
 
+<!-- REVIEWS -->
 <section id="reviews">
 <div class="container">
 <h2>Student Reviews</h2>
 
-<!-- Review Form -->
-<form>
-<input type="text" placeholder="Your Name" required><br>
+<form onsubmit="handleSubmit(event)">
+<input type="text" id="name" placeholder="Your Name" required><br>
 
-<select required>
-<option value="">Select Rating</option>
+<select id="rating" required>
+<option value="">Rating</option>
 <option>★★★★★</option>
 <option>★★★★☆</option>
 <option>★★★☆☆</option>
+<option>★★★☆☆</option>
+<option>★★☆☆</option>
+<option>★☆☆☆☆</option>
+
+  
+  
 </select><br>
 
-<textarea placeholder="Write your review" required></textarea><br>
+<textarea id="review" placeholder="Write review" required></textarea><br>
 
-<button class="btn">Submit Review</button>
+<button class="btn">Submit</button>
 </form>
+
+<div id="reviewList"></div>
 
 </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
 <div class="container">
 <h2>Contact Us</h2>
 <p>Kavitha - Arani</p>
 <p>Email: kavithait5017@gmail.com</p>
-<p>Phone: 9092306610 / 8110999825</p>
+<p>Phone: 9092306610</p>
 
 <a class="btn" href="https://wa.me/919092306610">Chat on WhatsApp</a>
 </div>
@@ -239,6 +231,56 @@ margin-top:40px;
 <footer>
 <p>© 2026 DK Technologies</p>
 </footer>
+
+<!-- FIREBASE -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, addDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const firebaseConfig = {
+apiKey: "YOUR_KEY",
+authDomain: "YOUR_DOMAIN",
+projectId: "YOUR_PROJECT_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+window.handleSubmit = async function(e){
+e.preventDefault();
+
+const name = document.getElementById("name").value;
+const rating = document.getElementById("rating").value;
+const review = document.getElementById("review").value;
+
+await addDoc(collection(db, "reviews"), {
+name, rating, review
+});
+
+alert("Review submitted!");
+loadReviews();
+}
+
+async function loadReviews(){
+const querySnapshot = await getDocs(collection(db, "reviews"));
+const list = document.getElementById("reviewList");
+list.innerHTML = "";
+
+querySnapshot.forEach((doc) => {
+const data = doc.data();
+
+list.innerHTML += `
+<div class="review-card">
+<strong>${data.name}</strong><br>
+<span class="review-stars">${data.rating}</span>
+<p>${data.review}</p>
+</div>
+`;
+});
+}
+
+loadReviews();
+</script>
 
 </body>
 </html>
