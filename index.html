@@ -5,208 +5,236 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DK Technologies</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
-
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Times New Roman", serif;
+scroll-behavior:smooth;
+}
 
 body{background:#f8fafc;color:#0f172a;}
 
-header{
-padding:60px 20px;
-text-align:center;
-background:linear-gradient(135deg,#e0f2fe,#bae6fd);
-}
-
-.logo{
-width:80px;height:80px;border-radius:50%;
-background:#0284c7;color:white;
-display:flex;align-items:center;justify-content:center;
-font-size:30px;margin:auto;font-weight:bold;
-}
-
-header h1{
-font-size:48px;
-letter-spacing:2px;
-margin-top:10px;
-font-family:'Montserrat', sans-serif;
-}
-
-header span{color:#0284c7;}
-
 nav{
-display:flex;justify-content:center;
-background:#e2e8f0;padding:15px;
+display:flex;
+justify-content:space-between;
+padding:15px 30px;
+background:white;
+position:sticky;
+top:0;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+z-index:1000;
 }
 
-nav a{
-margin:0 15px;text-decoration:none;
-color:#0f172a;font-weight:500;
+nav h2{color:#0284c7;}
+nav a{margin-left:15px;text-decoration:none;color:#0f172a;font-weight:bold;}
+
+.hero{
+height:90vh;
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
 }
 
-nav a:hover{color:#0284c7;}
+.hero h1{font-size:50px;}
+.hero p{margin-top:10px;font-size:18px;}
 
-section{padding:60px 20px;text-align:center;}
-.container{max-width:1100px;margin:auto;}
+.btn{
+background:#0284c7;
+color:white;
+padding:10px 20px;
+border-radius:8px;
+text-decoration:none;
+display:inline-block;
+margin-top:15px;
+border:none;
+cursor:pointer;
+}
+
+section{padding:80px 20px;}
+.container{max-width:1100px;margin:auto;text-align:center;}
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;margin-top:30px;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+margin-top:30px;
 }
 
 .card{
-background:white;padding:25px;border-radius:15px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-transition:0.3s;
-}
-.card:hover{transform:translateY(-8px);}
-
-.btn{
-background:#0284c7;color:white;
-padding:10px 20px;border-radius:8px;
-text-decoration:none;display:inline-block;
-margin-top:10px;border:none;cursor:pointer;
-}
-.btn:hover{background:#0369a1;}
-
-.review-card{
-background:white;padding:20px;border-radius:12px;
-margin-top:20px;
-box-shadow:0 6px 15px rgba(0,0,0,0.08);
-text-align:left;border-left:5px solid #0284c7;
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+cursor:pointer;
+transition:0.4s;
 }
 
-.review-header{
-display:flex;justify-content:space-between;
+.card:hover{transform:translateY(-10px);}
+
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:10px;
 }
 
-.review-stars{color:#fbbf24;}
+.price{color:#16a34a;font-weight:bold;margin-top:10px;}
 
-form input, form textarea, form select{
-width:80%;padding:10px;margin:10px;
-border-radius:8px;border:1px solid #ccc;
+.details{
+display:none;
+text-align:left;
+margin-top:10px;
+}
+
+.diagram{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:10px;
+margin:15px 0;
+}
+
+.step{
+background:#0284c7;
+color:white;
+padding:10px 15px;
+border-radius:25px;
+font-size:14px;
+position:relative;
+}
+
+.step::after{
+content:"→";
+position:absolute;
+right:-15px;
+color:#0284c7;
+}
+
+.step:last-child::after{display:none;}
+
+.about{
+background:#e0f2fe;
+padding:30px;
+border-radius:15px;
+line-height:1.7;
+}
+
+.hidden{
+opacity:0;
+transform:translateY(30px);
+transition:0.6s;
+}
+.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.contact{
+background:#f1f5f9;
+padding:30px;
+border-radius:10px;
 }
 
 footer{
-background:#e2e8f0;
-padding:20px;text-align:center;
+background:#0f172a;
+color:white;
+text-align:center;
+padding:20px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<div class="logo">DK</div>
-<h1>DK <span>Technologies</span></h1>
-<p>Final Year Projects | Student Solutions | Startup Services</p>
-</header>
-
 <nav>
+<h2>DK Technologies</h2>
+<div>
 <a href="#">Home</a>
-<a href="#services">Services</a>
+<a href="#about">About</a>
 <a href="#projects">Projects</a>
-<a href="#reviews">Reviews</a>
 <a href="#contact">Contact</a>
+</div>
 </nav>
 
-<!-- HOME -->
-<section>
-<div class="container">
-<h2>Welcome</h2>
-<p>We provide high-quality academic and real-time projects for students.</p>
-
-<h3 style="margin-top:15px;color:#0284c7;">
-100+ Students Successfully Completed Projects
-</h3>
-
+<section class="hero">
 <div>
-<a href="#services" class="btn">Our Services</a>
-<a href="#projects" class="btn">View Projects</a>
-<a href="#contact" class="btn">Contact Us</a>
-</div>
+<h1>DK Technologies</h1>
+<p>
+Final Year Project Development <br>
+Custom Project Solutions | Mini Projects | Live Training
+</p>
+<a href="#projects" class="btn">Explore Projects</a>
 </div>
 </section>
 
-<!-- SERVICES -->
-<section id="services">
+<section id="about" class="hidden">
 <div class="container">
-<h2>Our Services</h2>
-<div class="grid">
-<div class="card">Final Year Project Development</div>
-<div class="card">Custom Project Solutions</div>
-<div class="card">Mini Projects</div>
-<div class="card">Live Training</div>
+<h2>About Us</h2>
+
+<div class="about">
+<p>DK Technologies provides innovative software solutions.</p>
+<p>We specialize in AI, ML, NLP, and Web Development.</p>
+<p>
+✔ Real-Time Projects  
+<br>✔ Custom Development  
+<br>✔ Affordable Pricing  
+<br>✔ Documentation & Training  
+</p>
 </div>
+
 </div>
 </section>
 
-<!-- PROJECTS (RESTORED SAME) -->
-<section id="projects">
+<section id="projects" class="hidden">
 <div class="container">
 <h2>Our Projects</h2>
+
 <div class="grid">
 
-<div class="card">
+<div class="card" onclick="toggle(this)">
+<img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c">
 <h3>AI Intrusion Detection</h3>
-<p>Machine learning system</p>
-<a href="https://wa.me/919092306610" class="btn">Request Project</a>
+<p class="price">₹5000</p>
+
+<div class="details">
+<p>Detect cyber attacks using AI.</p>
+<button class="btn" onclick="event.stopPropagation();openWhatsApp()">Request Project</button>
+</div>
 </div>
 
-<div class="card">
+<div class="card" onclick="toggle(this)">
+<img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c">
 <h3>Fake News Detection</h3>
-<p>Recommendation system</p>
-<a href="https://wa.me/919092306610" class="btn">Request Project</a>
-</div>
+<p class="price">₹4000</p>
 
-<div class="card">
-<h3>Sentiment Analysis</h3>
-<p>Student feedback system</p>
-<a href="https://wa.me/919092306610" class="btn">Request Project</a>
+<div class="details">
+<p>Detect fake news using NLP.</p>
+<button class="btn" onclick="event.stopPropagation();openWhatsApp()">Request Project</button>
+</div>
 </div>
 
 </div>
 </div>
 </section>
 
-<!-- REVIEWS -->
-<section id="reviews">
-<div class="container">
-<h2>Student Reviews</h2>
-
-<form onsubmit="handleSubmit(event)">
-<input type="text" id="name" placeholder="Your Name" required><br>
-
-<select id="rating" required>
-<option value="">Rating</option>
-<option>★★★★★</option>
-<option>★★★★☆</option>
-<option>★★★☆☆</option>
-<option>★★☆☆☆</option>
-<option>★☆☆☆☆</option>
-</select><br>
-
-<textarea id="review" placeholder="Write review" required></textarea><br>
-
-<button class="btn">Submit</button>
-</form>
-
-<div id="reviewList"></div>
-
-</div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
+<section id="contact" class="hidden">
 <div class="container">
 <h2>Contact Us</h2>
 
-<p>Kavitha - Arani</p>
+<div class="contact">
 <p>Email: kavithait5017@gmail.com</p>
 <p>Phone: 9092306610 / 8110999825</p>
 
 <button class="btn" onclick="openWhatsApp()">Chat on WhatsApp</button>
+</div>
 
 </div>
 </section>
@@ -215,62 +243,45 @@ padding:20px;text-align:center;
 <p>© 2026 DK Technologies</p>
 </footer>
 
-<script type="module">
-import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm"
+<script>
 
-const supabase = createClient(
-"https://cwwpxzspavwuwrqvydlp.supabase.co",
-"sb_publishable_VVp8bnP6yrRfZY0N5kd6LA_8yAiEpWH"
-);
-
-window.handleSubmit = async function(e){
-e.preventDefault();
-
-const name = document.getElementById("name").value;
-const rating = document.getElementById("rating").value;
-const review = document.getElementById("review").value;
-
-await supabase.from("reviews").insert([{name,rating,review,created_at:new Date()}]);
-
-document.getElementById("name").value="";
-document.getElementById("rating").value="";
-document.getElementById("review").value="";
-
-loadReviews();
+function toggle(card){
+const d=card.querySelector(".details");
+d.style.display=d.style.display==="block"?"none":"block";
 }
 
-async function loadReviews(){
-const {data} = await supabase.from("reviews").select("*").order("id",{ascending:false});
+// ✅ WHATSAPP FUNCTION WITH 2 NUMBERS
+function openWhatsApp(){
 
-const list = document.getElementById("reviewList");
-list.innerHTML="";
+const msg = `Hi 👋 This is DK Technologies.
 
-data.forEach(r=>{
-list.innerHTML+=`
-<div class="review-card">
-<div class="review-header">
-<b>${r.name}</b>
-<span>${r.created_at ? new Date(r.created_at).toLocaleDateString() : ""}</span>
-</div>
-<div class="review-stars">${r.rating}</div>
-<p>${r.review}</p>
-</div>
-`;
+We offer ready-made and customized final year projects in AI, ML, NLP, and Web Development.
+
+You can choose from our existing projects or request a custom project.
+
+Please share:
+• Project topic/domain
+• Required features
+• Deadline
+
+We will suggest the best solution for you 🙂`;
+
+const phone1 = "919092306610";
+const phone2 = "918110999825";
+
+// open both chats
+window.open(`https://wa.me/${phone1}?text=${encodeURIComponent(msg)}`, "_blank");
+window.open(`https://wa.me/${phone2}?text=${encodeURIComponent(msg)}`, "_blank");
+}
+
+// animation
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){e.target.classList.add("show");}
 });
-}
+});
+document.querySelectorAll(".hidden").forEach(el=>observer.observe(el));
 
-window.openWhatsApp = function(){
-
-const message = "Hi, this is DK Technologies 👋\nWhat kind of help do you need from our services?";
-
-const url1 = `https://wa.me/919092306610?text=${encodeURIComponent(message)}`;
-const url2 = `https://wa.me/918110999825?text=${encodeURIComponent(message)}`;
-
-window.open(url1,"_blank");
-window.open(url2,"_blank");
-}
-
-loadReviews();
 </script>
 
 </body>
