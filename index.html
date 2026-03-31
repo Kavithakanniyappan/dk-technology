@@ -16,6 +16,7 @@ scroll-behavior:smooth;
 
 body{background:#f8fafc;color:#0f172a;}
 
+/* NAVBAR */
 nav{
 display:flex;
 justify-content:space-between;
@@ -30,10 +31,11 @@ z-index:1000;
 nav h2{color:#0284c7;}
 nav a{margin-left:15px;text-decoration:none;color:#0f172a;font-weight:bold;}
 
+/* HERO (UPDATED AI IMAGE) */
 .hero{
 height:90vh;
 background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485');
+url('https://images.unsplash.com/photo-1677442136019-21780ecad995'); /* AI image */
 background-size:cover;
 background-position:center;
 display:flex;
@@ -58,6 +60,7 @@ border:none;
 cursor:pointer;
 }
 
+/* SECTION */
 section{padding:80px 20px;}
 .container{max-width:1100px;margin:auto;text-align:center;}
 
@@ -68,6 +71,7 @@ gap:25px;
 margin-top:30px;
 }
 
+/* CARD */
 .card{
 background:white;
 padding:20px;
@@ -94,6 +98,7 @@ text-align:left;
 margin-top:10px;
 }
 
+/* FLOW DIAGRAM (UNCHANGED) */
 .diagram{
 display:flex;
 flex-wrap:wrap;
@@ -154,54 +159,69 @@ padding:20px;
 
 <body>
 
+<!-- NAV -->
 <nav>
 <h2>DK Technologies</h2>
 <div>
 <a href="#">Home</a>
 <a href="#about">About</a>
 <a href="#projects">Projects</a>
+<a href="#reviews">Reviews</a>
 <a href="#contact">Contact</a>
 </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
 <div>
 <h1>DK Technologies</h1>
 <p>
 Final Year Project Development <br>
-Custom Project Solutions | Mini Projects | Live Training
+AI & ML | Web Development | Custom Project Solutions | Mini Projects | Live Training
 </p>
 <a href="#projects" class="btn">Explore Projects</a>
 </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about" class="hidden">
 <div class="container">
 <h2>About Us</h2>
 
 <div class="about">
-<p>DK Technologies provides innovative software solutions.</p>
-<p>We specialize in AI, ML, NLP, and Web Development.</p>
+<p>DK Technologies is a growing startup providing innovative software solutions for students and businesses.</p>
+<p>We specialize in Artificial Intelligence, Machine Learning, NLP, and Web Development with real-time project implementation</p>
 <p>
 ✔ Real-Time Projects  
-<br>✔ Custom Development  
+<br>✔ Customized Project Development  
 <br>✔ Affordable Pricing  
-<br>✔ Documentation & Training  
+<br>✔ Documentation & Live Training  
 </p>
 </div>
 
 </div>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects" class="hidden">
 <div class="container">
 <h2>Our Projects</h2>
 
 <div class="grid">
 
+<!-- AI -->
 <div class="card" onclick="toggle(this)">
 <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c">
 <h3>AI Intrusion Detection</h3>
+
+<div class="diagram">
+<div class="step">Dataset</div>
+<div class="step">Preprocess</div>
+<div class="step">ML Model</div>
+<div class="step">Predict</div>
+<div class="step">Alert</div>
+</div>
+
 <p class="price">₹5000</p>
 
 <div class="details">
@@ -210,9 +230,19 @@ Custom Project Solutions | Mini Projects | Live Training
 </div>
 </div>
 
+<!-- FAKE NEWS -->
 <div class="card" onclick="toggle(this)">
 <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c">
 <h3>Fake News Detection</h3>
+
+<div class="diagram">
+<div class="step">Input</div>
+<div class="step">Clean</div>
+<div class="step">NLP</div>
+<div class="step">Classify</div>
+<div class="step">Result</div>
+</div>
+
 <p class="price">₹4000</p>
 
 <div class="details">
@@ -221,10 +251,45 @@ Custom Project Solutions | Mini Projects | Live Training
 </div>
 </div>
 
+<!-- SENTIMENT -->
+<div class="card" onclick="toggle(this)">
+<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71">
+<h3>Student Sentiment Analysis</h3>
+
+<div class="diagram">
+<div class="step">Input</div>
+<div class="step">Process</div>
+<div class="step">Model</div>
+<div class="step">Analyze</div>
+<div class="step">Output</div>
+</div>
+
+<p class="price">₹3500</p>
+
+<div class="details">
+<p>Analyze student feedback.</p>
+<button class="btn" onclick="event.stopPropagation();openWhatsApp()">Request Project</button>
+</div>
+</div>
+
 </div>
 </div>
 </section>
 
+<!-- GOOGLE REVIEWS (ADDED BACK) -->
+<section id="reviews" class="hidden">
+<div class="container">
+<h2>Google Reviews</h2>
+<p>Support us by giving your valuable feedback ⭐</p>
+
+<a href="https://g.page/r/CS5SfNlGHn_1EAI/review" target="_blank" class="btn">
+⭐ Give Review on Google
+</a>
+
+</div>
+</section>
+
+<!-- CONTACT -->
 <section id="contact" class="hidden">
 <div class="container">
 <h2>Contact Us</h2>
@@ -250,7 +315,7 @@ const d=card.querySelector(".details");
 d.style.display=d.style.display==="block"?"none":"block";
 }
 
-// ✅ WHATSAPP FUNCTION WITH 2 NUMBERS
+// ✅ WHATSAPP (2 NUMBERS)
 function openWhatsApp(){
 
 const msg = `Hi 👋 This is DK Technologies.
@@ -264,12 +329,11 @@ Please share:
 • Required features
 • Deadline
 
-We will suggest the best solution for you 🙂`;
+We will suggest the best solution 🙂`;
 
 const phone1 = "919092306610";
 const phone2 = "918110999825";
 
-// open both chats
 window.open(`https://wa.me/${phone1}?text=${encodeURIComponent(msg)}`, "_blank");
 window.open(`https://wa.me/${phone2}?text=${encodeURIComponent(msg)}`, "_blank");
 }
@@ -280,6 +344,7 @@ entries.forEach(e=>{
 if(e.isIntersecting){e.target.classList.add("show");}
 });
 });
+
 document.querySelectorAll(".hidden").forEach(el=>observer.observe(el));
 
 </script>
